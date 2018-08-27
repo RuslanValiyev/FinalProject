@@ -1,0 +1,102 @@
+﻿@model Fruit.Models.Blog
+    @using Fruit.Models
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/MainLaayout.cshtml";
+}
+<h1 style="text-align:center;" class="page-title eff">Blog Detail</h1>
+
+<div class="main">
+    <div class="single noo-shop-main">
+        <div class="container">
+            <div class="row">
+                <div class="noo-main col-md-9">
+                    <article>
+                        <div class="blog-item">
+                            <div class="blog-description">
+                                <span class="cat">
+                                    <a href="#">General</a>/<a href="#">Recipes</a>
+                                </span>
+                                <h1>@Model.Title</h1>
+                            </div>
+                            <div class="content-featured">
+                                <div class="blog-thumbnail">
+                                    <div class="content-thumb">
+                                        <img width="740" height="440" src="~/Front/images/blog/blog_5.jpg" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="blog_excerpt">
+                                <p>
+                                    @Model.About
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                    <div class="content-meta">
+                        <div class="content-tags">
+                            <span class="fa fa-tag"></span>
+                            <a href="#">fertiliser</a>, <a href="#">organic food</a>, <a href="#">tips</a>
+                        </div>
+                    </div>
+                    <div id="comments" class="comments-area">
+                        <h3 class="comments-title">Comments</h3>
+                        <ol class="comments-list">
+                            @foreach (Comment item in Model.Comments)
+                            {
+                                <li class="comment">
+                                    <div class="comment-wrap">
+                                        <div class="comment-img">
+                                            <img alt='' src='http://placehold.it/100x100' height='80' width='80' />
+                                        </div>
+                                        <article class="comment-block">
+                                            <header class="comment-header">
+                                                <div class="comment-meta">
+                                                    <span class="time">
+                                                        @item.BlogDate
+                                                    </span>
+                                                </div>
+                                            </header>
+                                            <div class="comment-content">
+                                                <p>
+                                                    @item.BlogContent
+                                                </p>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </li>
+                            }
+                            <!-- #comment-## -->
+                        </ol> <!-- /.comments-list -->
+                        <div id="respond-wrap">
+                            <div id="respond" class="comment-respond">
+                                <h3 class="comment-reply-title">
+                                    <span>Leave us a comment</span>
+                                </h3>
+                                <form class="comment-form" method="post" action="/Blog/PostComment">
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <div class="comment-form-comment">
+                                                <textarea class="form-control" placeholder="Your Comment" id="comment" name="text" cols="40" rows="6"></textarea>
+                                            </div>
+                                        </div>
+                                        <input type="number" style="display:none;" name="id" value="@Model.Id" />
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-submit">
+                                                <input name="submit" type="submit" id="submit" class="submit" value="Post Comments" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

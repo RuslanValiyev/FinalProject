@@ -1,0 +1,53 @@
+﻿@model Fruit.Models.Contact
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MainLaayout.cshtml";
+}
+
+            <h1 style="text-align:center;" class="page-title eff">Contact Us</h1>
+<div class="main">
+    <div class="pt-10 pb-10">
+        <div class="container">
+            <div class="row">
+                <div class="noo_image_left col-sm-12">
+                    <div class="noo-image-signature" style="width:100%!important;">
+                        <div class="img-background-color"></div>
+                        <div class="img-background-sign style-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="google-map">
+       <div id="googleMap" data-icon="~/Front/images/icon_location.png" data-lat="37.789133" data-lon="-122.402158"></div>
+        <div class="noo-address-info-wrap">
+            <div class="container">
+                <div class="address-info" style="right:27%!important;width:57%;">
+                    <h3>Contact info</h3>
+                    <p>
+                        Maecenas tristique gravida, odio et sagi ttis justo. Suspendisse ultri cies nisi vel quam suscipit, et rutrum odio porttitor. Claritas etiam proce ssusa dynamicus, tudium lectorum.
+                    </p>
+                    <ul>
+                        <li>
+                            <i class="fa fa-map-marker"></i>
+                            <span>@Model.Address</span>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope"></i>
+                            <span><a href="mailto:email@domain.com">@Model.Email</span>
+                        </li>
+                        <li>
+                            <i class="fa fa-phone"> </i>
+                            <span>@Model.Phone</span>
+                        </li>
+                        <li>
+                            <i class="fa fa-globe"> </i>
+                            <span><a href="#">http://www.companyname.com</a></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

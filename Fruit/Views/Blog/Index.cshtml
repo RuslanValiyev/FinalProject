@@ -1,0 +1,53 @@
+﻿@model  List<Fruit.Models.Blog>
+    @using Fruit.Models
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MainLaayout.cshtml";
+}
+<h1 style="text-align:center;" class="page-title eff">Blog</h1>
+
+<div class="main">
+    <div class="blog noo-shop-main">
+        <div class="container">
+            <div class="row">
+                <div class="noo-main col-md-9">
+                    <article class="hentry">
+                        @foreach (Blog item in Model)
+                        {
+                            <div class="blog-item">
+                                <div class="content-featured">
+                                    <div class="blog-thumbnail">
+                                        <a class="content-thumb" href="/Blog/Detail/@item.Id">
+                                            <img width="740" height="440" src="~/Uploads/@item.Image" alt="" />
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="blog-description">
+                                    <span class="cat">
+                                        <a href="#">Organic Food</a>/<a href="#">Tips &amp; @item.Title</a>
+                                    </span>
+                                    <div class="blog_excerpt">
+                                        <p>
+                                            @item.About
+                                        </p>
+                                        <a href="/Blog/Detail/@item.Id" class="view-more"><span>View more</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </article>                  
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="noo-footer-shop-now">
+        <div class="container">
+            <div class="col-md-7">
+                <h4>- Every day fresh -</h4>
+                <h3>organic food</h3>
+            </div>
+            <img src="images/organici-love-me.png" class="noo-image-footer" alt="" />
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,215 @@
+﻿@model Fruit.ViewModel.MainModel
+    @using Fruit.Models
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="main">
+    <div class="interact-banner">
+        <div class="container">
+            <div class="row">
+                <div class="noo-traslate-atributes col-sm-12 col-md-6 hidden-xs">
+                    <div class="pt-5">
+                        <div class="noo-atributes">
+                            <img width="494" height="618" src="~/Front/images/image-01.png" alt="" />                       
+                        </div>
+                    </div>
+                </div>
+                <div class="noo-traslate-product col-sm-12 col-md-6">
+                    <div class="pt-5">
+                        <div class="noo-short-intro">
+                            <h4>Special fruits</h4>
+                            <h2>organici store</h2>
+                            <div class="price">
+                                <span>- Only -</span>
+                                $99.00
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pt-15 pb-11">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="noo-product-grid-wrap commerce product-style">
+                        <div class="noo-sh-title">
+                            <h2>Our new products</h2>
+                            <p>
+                                Maecenas tristique gravida odio, et sagi ttis justo interdum porta. Duis et lacus mattis, tincidunt eronec dictum
+                                non nulla.
+                            </p>
+                        </div>
+                        <div class="noo-product-filter masonry-filters">
+                            <ul class="noo-header-filter" data-option-key="filter">
+                                <li>
+                                    <a data-option-value="*" href="#all" class="selected">
+                                        <img width="30" height="26" src="~/Front/images/filter/filter-1.png" alt="" />
+                                        <span>All products</span>
+                                    </a>
+                                </li>
+
+                                @foreach (Category item in Model.Categories)
+                                {
+                                    <li>
+                                        <a data-option-value=".@item.Name" href="#@item.Name">
+                                            <img width="30" height="26" src="~/Front/images/filter/filter-5.png" alt="" />
+                                            <span>@item.Name</span>
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                        <div class="noo-product-grid products row product-grid noo-grid-4">                          
+                            @foreach (Product item in Model.Products)
+                            {
+                                <div class="@item.Category.Name masonry-item col-md-4 col-sm-6">
+                                    <div class="noo-product-inner">
+                                        <div style="width:100%;height:200px;" class="noo-product-thumbnail">
+                                            <a href="shop-detail.html">
+                                                <img style="height:200px;" width="600" height="760" src="~/Uploads/@item.Image" alt="" />
+                                            </a>
+                                            <div class="noo-rating">
+                                                <div class="star-rating">
+                                                    <span style="width:60%"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="noo-product-title">
+                                            <h3>
+                                                <a href="shop-detail.html">@item.Name</a>
+                                            </h3>
+                                            <span class="price">
+                                                <span class="amount">&#36;@item.Price</span>
+                                            </span>
+                                            <div class="noo-product-action">
+                                                <div class="noo-action">
+                                                    <a href="#" class="button product_type_simple add_to_cart_button">
+                                                        <span>Add to cart</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                      
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pt-11 pb-10">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="noo-sh-title noo-farmer-title">
+                        <h2>Our farmer</h2>
+                        <p>
+                            Fusce sem enim, rhoncus volutpat condimentum ac, placerat semper ligula. Suspendisse in viverra justo ipsum dolor sit amet,
+                            consectetur adipiscing elit.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @foreach (Fermer item in Model.Fermers)
+                {
+                    <div class="col-md-4 col-sm-6">
+                        <div class="noo-farmer">
+                            <div class="noo-farmer-thumbnail">
+                                <img style="width:100%;height:300px;" width="284" height="380" src="~/Uploads/@item.Image" alt="" />
+                            </div>
+                            <div class="noo-farmer-content" style="height:170px;">
+                                <h4>@item.Name</h4>
+                                <p>
+                                  @item.About
+                                </p>
+                                <span class="social">
+                                    <a href="#" class="fa fa-facebook"></a>
+                                    <a href="#" class="fa fa-twitter"></a>
+                                    <a href="#" class="fa fa-google"></a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="pt-12 pb-8">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="noo-sh-title noo-blog-title">
+                        <h2>Blog updates</h2>
+                        <p>
+                            Fusce sem enim, rhoncus volutpat condimentum ac, placerat semper ligula. Suspendisse in viverra justo
+                            <br />lipsum dolor sit amet, consectetur adipiscing elit.
+                        </p>
+                    </div>
+                    <div class="masonry noo-blog">
+                        <div class="row masonry-container">
+                            @foreach (Blog item in Model.Blogs)
+                            {
+                                <div class="masonry-item col-md-4 col-sm-6">
+                                    <div class="blog-item">
+                                        <a class="blog-thumbnail" href="/Blog/Detail/@item.Id">
+                                            <img style="height:200px;" width="600" height="440" src="~/Uploads/@item.Image" alt="" />
+                                        </a>
+                                        <div class="blog-description">
+                                            <span class="cat">
+                                                <a href="#">Organic Food</a>/
+                                                <a href="#">Tips &amp; Guides</a>
+                                            </span>
+                                            <h3>
+                                                <a href="blog-detail.html">@item.Title</a>
+                                            </h3>
+
+                                            @if (item.About.Length > 50)
+                                            {
+                                                <p class="blog_excerpt"> @item.About.Substring(0, 50)</p>
+                                            }
+                                            else
+                                            {
+                                                <p class="blog_excerpt"> @item.About</p>
+                                            }
+
+                                            <a class="view-more" href="/Blog/Detail/@item.Id">View more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="newsletter">
+        <div class="noo-sh-mailchimp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5 col-xs-12">
+                        <h3 class="noo-mail-title">Subscribe to us!</h3>
+                        <p class="noo-mail-desc">
+                            Enter Your email address for our mailing list to keep yourself update.
+                        </p>
+                    </div>
+                    <div class="col-md-7 col-xs-12">
+                        <form>
+                            <div class="newsletter-form-fields">
+                                <input id="EmailText" type="email" name="EMAIL" placeholder="Email address" required />
+                                <input id="SubscribeBtn" type="submit" value="submit" />
+                                <span style="display:block;" class="text-danger" id="MessageText"></span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
